@@ -33,7 +33,7 @@ fun OrderResult(
 
         ) {
             Text(
-                text = ""
+                text = "gggggg"
             )
 
         }

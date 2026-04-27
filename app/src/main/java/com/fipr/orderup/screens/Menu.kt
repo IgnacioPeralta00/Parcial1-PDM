@@ -4,8 +4,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.layout.padding
@@ -52,6 +54,7 @@ fun ProductMenu(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
+                    .weight(0.8f)
             ) {
                 items(menu) { product ->
                     Card(
@@ -68,7 +71,7 @@ fun ProductMenu(
                         ) {
                             AsyncImage(
                                 model = product.imagenUrl,
-                                contentDescription = "Imagen de porducto",
+                                contentDescription = "Imagen de producto",
                                 modifier = Modifier
                                     .size(width = 80.dp, height = 120.dp)
                                     .fillMaxWidth()
@@ -80,19 +83,21 @@ fun ProductMenu(
                                 text = product.nombre,
                                 style = MaterialTheme.typography.bodySmall
                             )
+                            Spacer(modifier.height(8.dp))
                             Text(
-                                text = "${product.precio}",
+                                text = "$ ${product.precio}",
                                 style = MaterialTheme.typography.bodySmall
                             )
                         }
                     }
+                    Spacer(modifier.height(8.dp))
                 }
             }
-
             Button(
                 onClick = { onCheckOrder() },
                 modifier = Modifier
                     .fillMaxWidth()
+                    .weight(0.1f)
             ) {
                 Text(
                     text = "Ver carrito",
@@ -100,8 +105,8 @@ fun ProductMenu(
                 )
 
             }
-
         }
+
 
     }
 }
